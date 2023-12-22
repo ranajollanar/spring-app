@@ -1,0 +1,6 @@
+spring:
+  datasource:
+    driver-class-name: 'org.postgresql.Driver'
+    jdbc-url: 'jdbc:postgresql://${WEBSHOP_DB_HOST}/${WEBSHOP_DB_NAME}'
+    username: '${WEBSHOP_DB_USER}'
+    password: '${WEBSHOP_DB_PASSWORD}'

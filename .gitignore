@@ -1,0 +1,123 @@
+##
+##  This is the annotated, default '.gitgnore' file.
+##
+##      http://git-scm.com/docs/gitignore
+##
+##
+##  For more inspiration, please visit:
+##
+##      https://www.gitignore.io/
+##
+
+##  Dotfiles except when whitelisted
+##
+!.editorconfig
+!.git*
+!.ruby-version
+!.*ignore
+!.*lint
+!.*rc
+!.*.json
+!.*.yml
+
+
+##  Bakfiles, cachefiles, logfiles, tmpfiles, and -dirs
+##
+*.bak
+*.cache
+*.log
+*.temp
+*.tmp
+bak
+cache
+log
+temp
+tmp
+
+
+##
+##  The above should cover the bulk of unwanted things; below are whatever tool specifics were missed.
+##
+
+
+##  `diff` and `patch` helper files;
+##
+*.diff
+*.patch
+*.rej
+
+
+##  Editor helper files;
+##
+##    * `vim`
+##
+Session.vim
+tags
+
+##    * Sublime Text / `subl`
+##
+*.sublime-*
+Installed Packages
+
+
+##  IDE helper files;
+##
+##    * Eclipse
+##
+*.launch
+
+##    * IntelliJ
+##
+*.iml
+*.ipr
+*.iws
+*___jb_tmp___
+.idea
+
+##    * Netbeans
+##
+nbproject
+
+##    * Visual Studio{, Code}
+##
+
+
+##  Build dependencies;
+##
+##    * `bower`
+##
+bower_components
+
+##    * `npm`
+##
+node_modules
+
+
+##  Build distribution artifacts;
+##
+build
+dist
+out
+target
+
+
+##  Build intermediates;
+##
+##    * Maven / `mvn`
+##
+buildNumber.properties
+dependency-reduced-pom.xml
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+
+
+##  Test reports;
+##
+test-reports
+
+##  Maven wrapper;
+##
+webshop-backend/.mvn/wrapper/maven-wrapper.jar
