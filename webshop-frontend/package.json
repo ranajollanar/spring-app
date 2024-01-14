@@ -13,7 +13,7 @@
     "sonar": "sonar-scanner"
   },
   "publishConfig": {
-    "registry": "http://192.168.1.22:8081/repository/Devopsprojectfrontend/"
+    "registry": "http://192.168.1.22:8081/repository/frontend-repository/"
   },
   "dependencies": {
     "@angular/animations": "10.0.6",
