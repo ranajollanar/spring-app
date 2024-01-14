@@ -1,19 +1,53 @@
 version: '3.9'
 
 services:
-  webshop-db:
-    container_name: webshop-db
-    image: ${DB_IMAGE}
+  webshop-fe-app:
+    container_name: webshop-fe-app
+    build:
+      context: ./webshop-frontend
     ports:
-      - ${DB_PORT_ON_HOST}:5432
-    environment:
-      POSTGRES_DB: ${DB_NAME}
-      POSTGRES_USER: ${DB_USER}
-      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      - 4444:4200
+    volumes:
+      - ./webshop-frontend:/app
+      - /app/node_modules
+    depends_on:
+      - webshop-be-api
     restart:
       unless-stopped
     networks:
-      - webshop_net
+      - webshop-net
+
+  webshop-be-api:
+    container_name: webshop-be-api
+    build:
+      context: ./webshop-backend
+    ports:
+      - 8888:8888
+    environment:
+      WEBSHOP_DB_HOST: webshop-db:5432
+      WEBSHOP_DB_NAME: ${DB_NAME}
+      WEBSHOP_DB_USER: ${DB_USER}
+      WEBSHOP_DB_PASSWORD: ${DB_PASSWORD}
+    depends_on:
+      - webshop-db
+    restart:
+      unless-stopped
+    networks:
+      - webshop-net
+
+  webshop-db:
+    container_name: webshop-db
+    image: postgres:13
+    ports:
+      - 5555:5432
+    environment:
+      POSTGRES_DB: webshop
+      POSTGRES_USER: webshop_user
+      POSTGRES_PASSWORD: secret
+    restart:
+      unless-stopped
+    networks:
+      - webshop-net
 
 networks:
-  webshop_net:
+  webshop-net:
